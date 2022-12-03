@@ -2,6 +2,8 @@
 from tkinter import *
 from datetime import datetime
 import calendar
+from dotenv import load_dotenv
+import wolframalpha
  
 # GUI
 r = Tk()
@@ -59,7 +61,25 @@ def send():
         txt.insert(END, "\n" + "Bot -> Day : "+str(week_days[weekday]))
  
     else:
-        txt.insert(END, "\n" + "Bot -> Sorry! I didn't understand that")
+        # Taking input from user
+        question = user
+  
+        # App id obtained by the above steps
+        app_id = "AHH934-68RU4X4Q5T"
+  
+        # Instance of wolf ram alpha 
+        # client class
+        client = wolframalpha.Client(app_id)
+  
+        # Stores the response from 
+        # wolf ram alpha
+        res = client.query(question)
+  
+        # Includes only text from the response
+        answer = next(res.results).text
+  
+        txt.insert(END, "\n" + "Bot -> Ans : "+answer)
+        #txt.insert(END, "\n" + "Bot -> Sorry! I didn't understand that")
  
     e.delete(0, END)
  
@@ -80,3 +100,5 @@ send = Button(r, text="Send", font=FONT_BOLD, bg=BG_GRAY,
               command=send).grid(row=2, column=1)
  
 r.mainloop()
+
+#
