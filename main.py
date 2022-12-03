@@ -3,7 +3,7 @@ from tkinter import *
  
 # GUI
 r = Tk()
-r.title("Chatbot")
+r.title("JARVIS")
  
 BG_GRAY = "#ABB2B9"
 BG_COLOR = "#17202A"
