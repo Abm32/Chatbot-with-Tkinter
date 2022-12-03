@@ -1,5 +1,7 @@
 
 from tkinter import *
+from datetime import datetime
+import calendar
  
 # GUI
 r = Tk()
@@ -43,6 +45,18 @@ def send():
  
     elif (user == "goodbye" or user == "see you later" or user == "see yaa"):
         txt.insert(END, "\n" + "Bot -> Have a nice day!")
+
+    elif (user == "whats the time now" or user == "time" or user == "current time"):
+        txt.insert(END, "\n" + "Bot -> Time : "+str(datetime.now().strftime('%H:%M')))
+
+    elif (user == "whats the date" or user == "date" or user == "todays date"):
+        txt.insert(END, "\n" + "Bot -> Date : "+str(datetime.now().strftime('%Y-%m-%d')))
+
+    elif (user == "what day is today" or user == "day today" or user == "today is"):
+        week_days=["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
+        daysss = datetime.now().strftime('%Y,%m,%d')
+        weekday= calendar.weekday(int(daysss[0:4]),int(daysss[5:7]),int(daysss[8:10]))
+        txt.insert(END, "\n" + "Bot -> Day : "+str(week_days[weekday]))
  
     else:
         txt.insert(END, "\n" + "Bot -> Sorry! I didn't understand that")
