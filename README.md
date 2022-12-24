@@ -1,4 +1,4 @@
-# Tkinter
+# Chatbot
 
 We are making a chatbot using tkinter. 
 
